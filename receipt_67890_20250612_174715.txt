@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Account: 67890
+Operation: Deposit
+Date: 2025-06-12T17:47:15.870119300
+
+Amount (USD): $100000,00
+Amount (COP): 410000000,00
+Currency selected: COP
+****************************
+Thank you for using ColCashFlow!

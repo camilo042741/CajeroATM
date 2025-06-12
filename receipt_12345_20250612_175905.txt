@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Account: 12345
+Operation: Withdrawal
+Date: 2025-06-12T17:59:05.917122
+
+Amount (USD): $40,00
+Amount (COP): 164000,00
+Currency selected: COP
+****************************
+Thank you for using ColCashFlow!

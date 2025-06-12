@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Account: 87654
+Operation: Deposit
+Date: 2025-06-12T18:03:28.919992400
+
+Amount (USD): $1075,27
+Amount (USD): 1075,27
+Currency selected: USD
+****************************
+Thank you for using ColCashFlow!

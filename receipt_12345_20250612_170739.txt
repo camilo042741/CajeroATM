@@ -1,0 +1,8 @@
+ATM Receipt
+------------
+Account: 12345
+Type: Withdrawal
+Amount: $200.0
+Date: 2025-06-12T17:07:39.480954900
+------------
+Thank you for using our ATM!

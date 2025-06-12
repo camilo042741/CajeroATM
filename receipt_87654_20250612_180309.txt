@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Account: 87654
+Operation: Balance Check
+Date: 2025-06-12T18:03:09.963703700
+
+Amount (USD): $990,00
+Amount (USD): 990,00
+Currency selected: USD
+****************************
+Thank you for using ColCashFlow!

@@ -1,0 +1,8 @@
+ATM Receipt
+------------
+Account: 12345
+Type: Balance Check
+Amount: $500.0
+Date: 2025-06-12T17:24:17.649732900
+------------
+Thank you for using our ATM!
