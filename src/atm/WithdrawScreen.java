@@ -16,7 +16,7 @@ public class WithdrawScreen extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
-        getContentPane().setBackground(new Color(150, 0, 0)); // rojo
+        getContentPane().setBackground(new Color(74, 168, 234)); // azul
 
         JLabel currencyLabel = new JLabel("Moneda:");
         currencyLabel.setBounds(30, 10, 100, 25);
