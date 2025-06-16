@@ -2,8 +2,11 @@ package atm;
 
 import javax.swing.*;
 
+/**
+ * Pantalla para registrar una nueva cuenta bancaria.
+ */
 public class RegisterScreen extends JFrame {
-    private static final double BONO_BIENVENIDA_USD = 10.0;
+    private static final double BONO_BIENVENIDA_USD = 10.0; // Bono por depósitos iniciales >= 50 USD
 
     private JTextField accountField;
     private JPasswordField pinField;
@@ -17,6 +20,7 @@ public class RegisterScreen extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
+        // Campo: Número de cuenta
         JLabel label1 = new JLabel("Número de cuenta:");
         label1.setBounds(30, 20, 150, 25);
         add(label1);
@@ -25,6 +29,7 @@ public class RegisterScreen extends JFrame {
         accountField.setBounds(170, 20, 130, 25);
         add(accountField);
 
+        // Campo: PIN
         JLabel label2 = new JLabel("PIN:");
         label2.setBounds(30, 60, 150, 25);
         add(label2);
@@ -33,6 +38,7 @@ public class RegisterScreen extends JFrame {
         pinField.setBounds(170, 60, 130, 25);
         add(pinField);
 
+        // Campo: Saldo inicial
         JLabel label3 = new JLabel("Saldo inicial (USD):");
         label3.setBounds(30, 100, 150, 25);
         add(label3);
@@ -41,6 +47,7 @@ public class RegisterScreen extends JFrame {
         balanceField.setBounds(170, 100, 130, 25);
         add(balanceField);
 
+        // Campo: Moneda
         JLabel label4 = new JLabel("Moneda:");
         label4.setBounds(30, 140, 150, 25);
         add(label4);
@@ -49,6 +56,7 @@ public class RegisterScreen extends JFrame {
         currencyBox.setBounds(170, 140, 130, 25);
         add(currencyBox);
 
+        // Botón: Crear Cuenta
         JButton createBtn = new JButton("Crear Cuenta");
         createBtn.setBounds(100, 190, 140, 30);
         add(createBtn);
@@ -59,11 +67,13 @@ public class RegisterScreen extends JFrame {
             String balanceText = balanceField.getText().trim();
             CurrencyType currency = (CurrencyType) currencyBox.getSelectedItem();
 
+            // Validar campos vacíos
             if (accNum.isEmpty() || pin.isEmpty() || balanceText.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Complete todos los campos.");
                 return;
             }
 
+            // Verificar si la cuenta ya existe
             if (FakeDatabase.getAccount(accNum) != null) {
                 JOptionPane.showMessageDialog(this, "La cuenta ya existe.");
                 return;
@@ -74,18 +84,23 @@ public class RegisterScreen extends JFrame {
                 double totalBalance = balanceUSD;
                 boolean aplicaBono = false;
 
+                // Verifica si aplica bono de bienvenida
                 if (balanceUSD >= 50) {
                     totalBalance += BONO_BIENVENIDA_USD;
                     aplicaBono = true;
                 }
 
-                // Crear cuenta y guardar
+                // Crea y guarda la cuenta
                 FakeDatabase.addAccount(accNum, pin, totalBalance, currency);
+
+                // Agrega la transacción del bono si aplica
                 if (aplicaBono) {
                     FakeDatabase.getAccount(accNum).addTransaction("Welcome Bonus", BONO_BIENVENIDA_USD);
                 }
 
                 FakeDatabase.saveAccounts();
+
+                // Genera recibo de bienvenida
                 ReceiptGenerator.generateWelcome(accNum, balanceUSD, currency, aplicaBono);
 
                 JOptionPane.showMessageDialog(this, "Cuenta creada con éxito.");
