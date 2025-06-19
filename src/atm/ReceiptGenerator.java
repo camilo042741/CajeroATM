@@ -1,34 +1,35 @@
-package atm;
+package atm; // Este archivo forma parte del paquete 'atm'.
 
-import javax.swing.*;
-import java.io.FileWriter;
+import javax.swing.*; // Librerías para interfaz gráfica.
+import java.io.FileWriter; // Para escribir archivos de texto.
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime; // Para obtener la fecha y hora actual.
+import java.time.format.DateTimeFormatter; // Para dar formato a la fecha.
 
 /**
- * Clase encargada de generar recibos en archivos de texto y también mostrarlos por pantalla.
+ * Clase encargada de generar recibos de transacciones o bienvenida.
+ * Los recibos se guardan como archivos .txt y también se muestran en pantalla.
  */
 public class ReceiptGenerator {
 
     /**
-     * Genera un recibo por una operación (depósito, retiro, etc.) y lo guarda como archivo .txt.
-     * También lo muestra en pantalla con un cuadro de diálogo.
+     * Genera un recibo por una operación bancaria (retiro, depósito, etc.).
+     * El recibo se guarda en un archivo .txt con la fecha y hora del evento y se muestra al usuario.
      *
-     * @param accountNumber Número de cuenta del usuario
-     * @param type Tipo de operación (por ejemplo: "Deposit", "Withdrawal")
-     * @param amountUSD Monto en dólares (USD)
+     * @param accountNumber Número de cuenta involucrado en la operación.
+     * @param type Tipo de transacción (por ejemplo: "Deposit", "Withdrawal").
+     * @param amountUSD Monto de la transacción expresado en dólares estadounidenses.
      */
     public static void generate(String accountNumber, String type, double amountUSD) {
         try {
-            // Obtiene la cuenta del usuario y su moneda
+            // Obtiene la cuenta asociada al número
             FakeDatabase.Account acc = FakeDatabase.getAccount(accountNumber);
             CurrencyType currency = acc.currency;
 
-            // Convierte el monto de USD a la moneda local
+            // Convierte el monto a la moneda seleccionada por el cliente
             double localAmount = currency.convertFromUSD(amountUSD);
 
-            // Formatea la fecha y hora actual para usarla en el nombre del archivo
+            // Formato para la fecha que se incluirá en el nombre del archivo
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
             String timestamp = dtf.format(LocalDateTime.now());
             String filename = "receipt_" + accountNumber + "_" + timestamp + ".txt";
@@ -47,12 +48,12 @@ public class ReceiptGenerator {
             sb.append("****************************\n");
             sb.append("Gracias por usar ColCashFlow!\n");
 
-            // Guarda el recibo en un archivo de texto
+            // Escribe el recibo en un archivo de texto local
             FileWriter writer = new FileWriter(filename);
             writer.write(sb.toString());
             writer.close();
 
-            // Muestra el recibo en una ventana
+            // Muestra el recibo al usuario mediante una ventana
             JTextArea area = new JTextArea(sb.toString());
             area.setEditable(false);
             JScrollPane scroll = new JScrollPane(area);
@@ -61,25 +62,26 @@ public class ReceiptGenerator {
             JOptionPane.showMessageDialog(null, scroll, "Recibo ColCashFlow", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // Imprime error si hay fallos de escritura en archivo
         }
     }
 
     /**
-     * Genera un recibo de bienvenida para una nueva cuenta, con o sin bono de $10.
+     * Genera un recibo especial de bienvenida al crear una cuenta nueva.
+     * Si el saldo inicial supera los $50 USD, se incluye un bono de $10.
      *
-     * @param accountNumber Número de cuenta
-     * @param balanceUSD Saldo inicial en USD
-     * @param currency Moneda seleccionada
-     * @param aplicaBono Si es true, se agrega un bono de $10 al saldo inicial
+     * @param accountNumber Número de cuenta creada.
+     * @param balanceUSD Saldo inicial ingresado por el cliente (en USD).
+     * @param currency Moneda elegida por el cliente.
+     * @param aplicaBono Indica si se aplicó el bono de bienvenida.
      */
     public static void generateWelcome(String accountNumber, double balanceUSD, CurrencyType currency, boolean aplicaBono) {
         try {
-            // Calcula el saldo total si se aplica el bono
+            // Calcula el saldo final teniendo en cuenta el bono (si aplica)
             double finalBalance = aplicaBono ? balanceUSD + 10 : balanceUSD;
             double localAmount = currency.convertFromUSD(finalBalance);
 
-            // Genera timestamp para el nombre del archivo
+            // Formato de fecha para el nombre del archivo
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
             String timestamp = dtf.format(LocalDateTime.now());
             String filename = "welcome_" + accountNumber + "_" + timestamp + ".txt";
@@ -110,7 +112,7 @@ public class ReceiptGenerator {
             writer.write(sb.toString());
             writer.close();
 
-            // Muestra el recibo en pantalla
+            // Muestra el recibo de bienvenida
             JTextArea area = new JTextArea(sb.toString());
             area.setEditable(false);
             JScrollPane scroll = new JScrollPane(area);

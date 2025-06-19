@@ -11,27 +11,31 @@ public class ExitScreen extends JFrame {
      * Constructor que configura la ventana de despedida.
      */
     public ExitScreen() {
-        // Título de la ventana
+        // Establece el título de la ventana
         setTitle("ColCashFlow - Exit");
 
-        // Tamaño de la ventana
+        // Define el tamaño de la ventana (ancho x alto)
         setSize(300, 150);
 
-        // Cierra completamente la aplicación al cerrar esta ventana
+        // Define que al cerrar la ventana, se cierre toda la aplicación
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        // Centra la ventana en la pantalla
+        // Centra la ventana en el centro de la pantalla
         setLocationRelativeTo(null);
 
-        // No se usa un layout automático, se posicionan los elementos manualmente
+        // Se desactiva el layout automático para ubicar elementos manualmente
         setLayout(null);
 
-        // Etiqueta con el mensaje de despedida
-        JLabel label = new JLabel("Thank you for using our ATM!"); // "¡Gracias por usar nuestro cajero!"
-        label.setBounds(50, 40, 220, 30); // Posiciona la etiqueta dentro de la ventana
-        add(label); // Agrega la etiqueta a la ventana
+        // Crea una etiqueta con el mensaje de despedida al usuario
+        JLabel label = new JLabel("Thank you for using our ATM!"); // Mensaje: "¡Gracias por usar nuestro cajero!"
 
-        // Muestra la ventana al usuario
+        // Establece la posición y tamaño de la etiqueta (x, y, ancho, alto)
+        label.setBounds(50, 40, 220, 30);
+
+        // Agrega la etiqueta a la ventana
+        add(label);
+
+        // Hace visible la ventana al usuario
         setVisible(true);
     }
 }
