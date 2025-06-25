@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Cuenta 123
+Operacion: Balance Check
+Fecha: 2025-06-25T11:57:49.779332300
+
+Monto (USD): $90,49
+Monto(USD): 90,49
+Moneda seleccionada: USD
+****************************
+Gracias por usar ColCashFlow!

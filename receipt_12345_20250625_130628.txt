@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Cuenta 12345
+Operacion: Withdrawal
+Fecha: 2025-06-25T13:06:28.977170200
+
+Monto (USD): $200,00
+Monto(COP): 820000,00
+Moneda seleccionada: COP
+****************************
+Gracias por usar ColCashFlow!

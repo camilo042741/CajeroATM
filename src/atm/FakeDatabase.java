@@ -15,7 +15,7 @@ public class FakeDatabase {
 
     // Bloque estático: se cargan dos cuentas de prueba al iniciar la aplicación
     static {
-        accounts.put("12345", new Account("12345", "54321", 500.00, CurrencyType.USD));
+        accounts.put("12345", new Account("12345", "12345", 500.00, CurrencyType.USD));
         accounts.put("11111", new Account("11111", "22222", 300.00, CurrencyType.COP));
     }
 

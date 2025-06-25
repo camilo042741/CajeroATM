@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Cuenta 123
+Operacion: Deposit
+Fecha: 2025-06-25T11:57:15.805873
+
+Monto (USD): $0,49
+Monto(USD): 0,49
+Moneda seleccionada: USD
+****************************
+Gracias por usar ColCashFlow!

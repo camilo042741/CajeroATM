@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Cuenta 12345
+Operacion: Balance Check
+Fecha: 2025-06-25T12:28:13.225609600
+
+Monto (USD): $500,00
+Monto(COP): 2050000,00
+Moneda seleccionada: COP
+****************************
+Gracias por usar ColCashFlow!

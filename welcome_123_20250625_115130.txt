@@ -1,0 +1,13 @@
+     Bienvenido a ColCashFlow
+****************************
+Cuenta creada exitosamente.
+Número de cuenta: 123
+Saldo inicial (USD): $100,00
+¡Felicitaciones! Has recibido un bono de bienvenida.
+Bono de bienvenida (USD): $10.00
+Saldo total (USD): $110,00
+Saldo en USD: 110,00
+Moneda seleccionada: USD
+Fecha: 2025-06-25T11:51:30.505983600
+****************************
+Gracias por confiar en ColCashFlow

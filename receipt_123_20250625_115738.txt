@@ -1,0 +1,11 @@
+     ColCashFlow Receipt
+****************************
+Cuenta 123
+Operacion: Withdrawal
+Fecha: 2025-06-25T11:57:38.113463100
+
+Monto (USD): $20,00
+Monto(USD): 20,00
+Moneda seleccionada: USD
+****************************
+Gracias por usar ColCashFlow!
