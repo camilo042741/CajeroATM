@@ -14,7 +14,7 @@ public class WithdrawScreen extends JFrame {
     private String accountNumber; // Número de cuenta del usuario
 
     /**
-     * Constructor que inicializa la ventana de retiro.
+     * Constructor que inicia la ventana de retiro.
      * @param accountNumber Número de cuenta del usuario que realiza el retiro.
      */
     public WithdrawScreen(String accountNumber) {
