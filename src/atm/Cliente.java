@@ -22,22 +22,22 @@ public class Cliente {
         this.dni = dni;
     }
 
-    // Método que devuelve el nombre del cliente
+    // Metodo que devuelve el nombre del cliente
     public String getNombre() {
         return nombre;
     }
 
-    // Método que devuelve el DNI del cliente
+    // Metodo que devuelve el DNI del cliente
     public String getDni() {
         return dni;
     }
 
-    // Método que permite modificar el nombre del cliente
+    // Metodo que permite modificar el nombre del cliente
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Método que permite modificar el DNI del cliente
+    // Metodo que permite modificar el DNI del cliente
     public void setDni(String dni) {
         this.dni = dni;
     }
